@@ -3726,29 +3726,6 @@ var TweetfilterScript = function() {
     }
     return true;
   };
-
-  Tweetfilter.prototype.createbar = function() {
-    $('#top-stuff').append(this.barhtml());
-  };
-
-  Tweetfilter.prototype.barhtml = function() {
-    return [
-      '<div id="tf-bar">',
-        '<div id="tf-bar-inner">',
-          '<ul id="tf-activity-stats" class="tf-tabs">',
-            '<li class="tf-tab"><a href="#" class="you followed" data-option="hide-followed-me"><i></i> Followed</a></li>',
-            '<li class="tf-tab"><a href="#" class="you favorited" data-option="hide-favorited-me"><i></i> Favorited</a></li>',
-            '<li class="tf-tab"><a href="#" class="you listed" data-option="hide-listed-me"><i></i> Listed</a></li>',
-            '<li class="tf-tab"><a href="#" class="you retweeted" data-option="hide-retweeted-me"><i></i> Retweeted</a></li>',
-            '<li class="tf-tab"><a href="#" class="others followed" data-option="hide-followed-me"><i></i> Followed</a></li>',
-            '<li class="tf-tab"><a href="#" class="others favorited" data-option="hide-favorited-me"><i></i> Favorited</a></li>',
-            '<li class="tf-tab"><a href="#" class="others listed" data-option="hide-listed-me"><i></i> Listed</a></li>',
-            '<li class="tf-tab"><a href="#" class="others retweeted" data-option="hide-retweeted-me"><i></i> Retweeted</a></li>',
-          '</ul>',
-        '</div>',
-      '</div>'
-    ].join("\n");
-  };
   
   Tweetfilter.prototype.widgethtml = function() {
     return [
