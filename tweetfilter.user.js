@@ -2387,7 +2387,7 @@ var TweetfilterScript = function() {
           } else 
           if (query.exact) {
             ismatch = this.findexactmatch(tweet.source, query.search) || (tweet.rt && tweet.rt.source && this.findexactmatch(tweet.rt.source, query.search));
-          }else {
+          } else {
             ismatch = tweet.source.indexOf(query.search) > -1 || (tweet.rt && tweet.rt.source && tweet.rt.source.indexOf(query.search) > -1);
           }
         } else 
@@ -3048,7 +3048,8 @@ var TweetfilterScript = function() {
         this.status.selectedtweet = $(e.target).closest('div.stream-item').attr('id');
         e.stopImmediatePropagation();
         return false;
-      }     }
+      }
+    }
     return true;
   };
   
@@ -3066,7 +3067,8 @@ var TweetfilterScript = function() {
           this.poll('removeselection');
           e.stopImmediatePropagation();
           return false;
-        }       }
+        }
+      }
     }
     return true;
   };
