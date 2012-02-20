@@ -4136,8 +4136,8 @@ var TweetfilterScript = function() {
       '.stream-title .go-to-list-page { position:absolute; top: 1em; right:1em; }', //assure we see "view list page" link in exclusive filter mode
       '.stream-title .stream-tabs { min-height:50px; }', //in foreign languages with long captions "top" and "with links" are hidden because of this Twitter css bug           
       /* message drawer */
-      '.message-inside > span.tf { display:block !important; }',
-      '#message-drawer a.x { background: none repeat scroll 0 0 #F8F8F8; color: #999999; display: inline-block; font-family: Tahoma; font-size: 12px; font-weight: bold; height: 22px; margin: -5px -10px -10px 10px;  padding: 3px 3px 2px; }',         
+      '.message-inside > span.tf { color:#999999; display:block !important; }',
+      '#message-drawer a.x { background: none repeat scroll 0 0 rgba(20, 20, 20, 0.9); color: #999999; display: inline-block; font-family: Tahoma; font-size: 12px; font-weight: bold; height: 22px; margin: -5px -10px -10px 10px;  padding: 3px 3px 2px; }',         
       '#message-drawer a.x:hover { color:#666; text-decoration:none; }',
       /* add to filter menu */
       '.tweet-actions, .tf-actions { position:absolute; right:-5px; bottom:-5px; font-size:11px; }',
