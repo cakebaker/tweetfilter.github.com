@@ -1917,7 +1917,7 @@ var TweetfilterScript = function() {
               id = this.cs.filter.itemids[itemid];
               tweet = this.cs.filter.items[id];
               item.attr('id', 't'+id);
-              var tweettext = $('div.tweet-text', item);
+              var tweettext = $('p.js-tweet-text', item);
               var htmltext = tweettext.html();
               if (htmltext.indexOf("\n") > -1) {
                 tweettext.html(htmltext.replace(/\n/g, ' <br />')); //insert line breaks
