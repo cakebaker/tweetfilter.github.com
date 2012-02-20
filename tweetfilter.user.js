@@ -509,7 +509,7 @@ var TweetfilterScript = function() {
       if (!twttr.loggedIn) {
         return false;
       }
-      if(document[get]('top-stuff') && document[get]('page-outer') && 
+      if(document[get]('page-outer') && 
          twttr[has]('router') && twttr[has]('$doc') && twttr[has]('$elements') && twttr.$elements[has]('page') && 
          twttr[has]('app') && twttr[has]('currentUser')) {
        return true;
