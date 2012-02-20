@@ -750,7 +750,6 @@ var TweetfilterScript = function() {
         link.attr('href', location.protocol+'//twitter.com'+link.attr('href'));
       });
       this._spritesurl = $('#new-tweet span').css('background-image');
-      this._activityspritesurl = this._spritesurl.split('/img/')[0]+'/img/sprite-activity-icons.png)';
       
       $('.twitter-anywhere-tweet-box-editor').live('focus blur', this.tweetboxfocus.bind(this));
       
