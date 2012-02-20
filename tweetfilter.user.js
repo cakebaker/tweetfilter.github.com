@@ -1877,7 +1877,7 @@ var TweetfilterScript = function() {
   };
   
   Tweetfilter.prototype.clicknewtweetsbar = function() {
-    var newtweetsbar = $('div#new-tweets-bar');
+    var newtweetsbar = $('div.new-tweets-bar');
     if (newtweetsbar.length) {
       if (this.getoption('scroll-lock')) {
         this.updatescrollstatus();
