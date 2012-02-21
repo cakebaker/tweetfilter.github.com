@@ -342,7 +342,7 @@ var TweetfilterScript = function() {
         path: 'div.user-rec-inner.user-rec-inner-similarities'
       },
       wtf: {
-        path: 'div.user-rec-inner > ul.recommended-followers.user-rec-component',
+        path: 'div.flex-module > div.js-recommended-followers',
         option: 'hide-wtf'
       },
       trends: {
