@@ -171,7 +171,7 @@ var TweetfilterScript = function() {
           break;
           case 'ContactImportServices':return 'Who to follow: Import contacts';break;
         }
-        return 'unknkown: '+this._stream.namespace;        
+        return 'unknown: '+this._stream.namespace;
       }).bind(this),
       isusers: (function() {
         return this._stream.itemtype === 'user'; 
