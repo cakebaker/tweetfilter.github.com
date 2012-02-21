@@ -601,7 +601,6 @@ var TweetfilterScript = function() {
                 throw 'itemsnotloaded';
               }
             } else {
-              
               throw 'streamkeynotswitched';
             }
             //stream was not switched, should'nt get here
@@ -626,7 +625,6 @@ var TweetfilterScript = function() {
           this.timeids.waitforstream = -1;
           this.waitforstream();
         }).bind(this), this._heartbeat*2);
-      }else {
       }
       return false;
     }
@@ -1027,7 +1025,6 @@ var TweetfilterScript = function() {
       if (!this.polling.stop) {
         window.setTimeout(this._breathe.bind(this),0);
         return;
-      } else {
       }
       this.widget.removeClass('busy');
       
@@ -1044,7 +1041,6 @@ var TweetfilterScript = function() {
         this.polling.timeoutid = -1;
         this._poll();
       }).bind(this), this._heartbeat);
-    } else {
     }
   };
   
@@ -1325,7 +1321,6 @@ var TweetfilterScript = function() {
 
   //enable an option after required components were detected
   Tweetfilter.prototype.enableoption = function(option, enabled) {
-    
     if (typeof enabled === 'undefined') enabled = true;
     if (!$.isArray(option)) option = [option];
     for (var i=0,len=option.length,ia;i<len;i++) {
@@ -2000,7 +1995,6 @@ var TweetfilterScript = function() {
           break;
         case 'activity':
           for (i=0, imax=items.length, item; i<imax && (item=items.eq(i)); i++) {
-
             itemid = item.attr('data-item-id');
             if (this.cs.filter.itemids.hasOwnProperty(itemid)) {
               id = this.cs.filter.itemids[itemid];
