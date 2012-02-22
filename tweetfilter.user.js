@@ -3296,7 +3296,6 @@ var TweetfilterScript = function() {
   };
   
   Tweetfilter.prototype.urlsresolved = function(urls) {
-    
     for (var shortened in urls) {
       this.addresolvedurl(shortened, urls[shortened]);
     }
@@ -3368,10 +3367,7 @@ var TweetfilterScript = function() {
     if (this.isexpanded(shortened, expanded)) {
       if (!this.cs.resolvedurls[shortened] || (this.isexpanded(this.cs.resolvedurls[shortened], expanded))) {
         this.cs.resolvedurls[shortened] = expanded;
-      } else {
-        
       }
-    } else {
     }
   };
   
@@ -3394,7 +3390,6 @@ var TweetfilterScript = function() {
   
   //walk through links, expand or collapse
   Tweetfilter.prototype.parselinks = function() {
-    
     if (!this.status.initialized || !this.stream.isready()) {
       return false; //repoll
     }
@@ -4844,7 +4839,6 @@ var TweetfilterScript = function() {
       if (this.getoption('hide-promoted-tweets') && this.cs.filter.promoted.length) {
         style.push('#t'+this.cs.filter.promoted.join(',#t')+' { '+hidecss+' }');
       }
-    } else {
     }
     /* highlight replies to me (overwrites excludes, if colliding) */
     if (this.getoption('highlight-mentionsme') && !this.stream.ismentions() && this.cs.filter.mentionsme.length) { //highlight tweets mentionining current user
@@ -4903,7 +4897,6 @@ var TweetfilterScript = function() {
       if (follower.length) css.push('i.u'+follower.join(',i.u') + ' { padding-right:14px; background-position: right -16px !important; }');
       if (mutual.length) css.push('i.u'+mutual.join(',i.u') + ' { padding-right:14px; background-position: right -35px !important; }');
       this.setcss('friends', css.join("\n")); //friend status
-    } else {
     } 
     return true;
   };
