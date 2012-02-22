@@ -4173,8 +4173,8 @@ var TweetfilterScript = function() {
       'body.tf-show-via .stream-item .tf-via a:hover { color:@link !important; }',
       /* body class enabled layout options */
       'body.tf-expand-new div#new-tweets-bar, body.tf-expand-new div.new-tweets-bar { display:none !important; }',
-      '.tweet-text br { display:none; }',
-      'body.tf-show-br .tweet-text br { display:inline; }',
+      '.js-tweet-text br { display:none; }',
+      'body.tf-show-br .js-tweet-text br { display:inline; }',
       'body.tf-small-links div.tweet-text-large a.twitter-timeline-link,',
       'body.tf-small-links .main-content a.twitter-timeline-link { font-size:12px; max-height:3em; line-height:12px; display:inline-block; max-width:440px; overflow:hidden; vertical-align:bottom; }',
       'body.tf-small-links div.tweet-text-large a.twitter-timeline-link:hover,',
