@@ -3934,7 +3934,7 @@ var TweetfilterScript = function() {
   
   Tweetfilter.prototype.widgetcss = function() {
     return [
-      'html { overflow-y:scroll; min-height:100%; }', //force scrollbar, remove horizontal jumps (opera)
+      'html { min-height:100%; }',
       'div.stream { min-height:0 !important; }',
       '.tweet-image.primary, .tweet-image.secondary { position:relative; z-index:1; border:2px solid #fff; margin:-2px; background:#fff; }',
       '.tweet-image.primary:hover { z-index:2; }',
