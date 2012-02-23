@@ -1960,16 +1960,16 @@ var TweetfilterScript = function() {
                   }
                 }
               }
-              $('span.tweet-actions', item)
-                .after('<span class="tf-actions">'+
+              $('li.action-reply-container', item)
+                .before('<li class="tf-actions">'+
                      //   '<a class="tf mark" data-itemid="'+tweet.tweetid+'" title="Mark as last read"><span><i class="tf-icon"></i> <b>Mark Last Read</b></span></a>'+
-                        '<a class="tf dm" data-user="'+tweet.screenname+'" title="Direct message"><span><i class="tf-icon"></i> <b>DM</b></span></a>'+
-                        '<a class="tf quote" title="Classic Retweet"><span><i class="tf-icon"></i> <b>Classic Retweet</b></span></a>'+
+//                        '<a class="tf dm" data-user="'+tweet.screenname+'" title="Direct message"><span><i class="tf-icon"></i> <b>DM</b></span></a>'+
+//                        '<a class="tf quote" title="Classic Retweet"><span><i class="tf-icon"></i> <b>Classic Retweet</b></span></a>'+
                         '<a class="tf menu" title="Tweetfilter"><span><i class="tf-icon"></i> <b>Filter</b></span></a>'+
-                        '</span>')
-                .before('<a class="tf-timestamp" href="/#!/'+tweet.username+'/status/'+tweet.tweetid+'" title="'+tweet.localtime.timestamp+'">'+tweet.localtime.prettytimestamp+'</a> '+
+                        '</li>')
+/*                .before('<a class="tf-timestamp" href="/#!/'+tweet.username+'/status/'+tweet.tweetid+'" title="'+tweet.localtime.timestamp+'">'+tweet.localtime.prettytimestamp+'</a> '+
                         '<span class="tf-usertime" title="'+tweet.localtime.timezone+'">'+tweet.localtime.time+'</span> '+
-                        '<span class="tf-via">via '+tweet.via+'</span>');
+                        '<span class="tf-via">via '+tweet.via+'</span>');*/
             } else {
               reparseitems = true;      
             }
@@ -3231,7 +3231,7 @@ var TweetfilterScript = function() {
   
   Tweetfilter.prototype.tweetfiltergetmenu = function(item, id) {
     var menu = '<ul class="tf-menu drop-down">';
-    var username = $.trim($('a.tweet-screen-name', item).html());
+    var username = $('.tweet', item).attr('data-screen-name');
     menu += '<li class="tf-user"><a class="tf add" data-query="@@'+username+'" title="filter tweets from @'+username+'">@'+username+'</a></li>';
     var retweetuser = $('span.retweet-icon', item).next('em').html();
     if (retweetuser) {
@@ -3255,7 +3255,7 @@ var TweetfilterScript = function() {
     var linksmenu = '';
     var hashtagsmenu = '';
     var mentionsmenu = '';
-    var links = $('div.tweet-text > a[class]', item);
+    var links = $('p.js-tweet-text > a[class]', item);
     if (links.length) {
       for (var l=0, lmax=links.length, link; l<lmax && (link=links.eq(l)); l++) {
         var linkclass = link.attr('class').replace(/^\s+/,'');
@@ -4135,10 +4135,11 @@ var TweetfilterScript = function() {
       '#message-drawer a.x { background: none repeat scroll 0 0 rgba(20, 20, 20, 0.9); color: #999999; display: inline-block; font-family: Tahoma; font-size: 12px; font-weight: bold; height: 22px; margin: -5px -10px -10px 10px;  padding: 3px 3px 2px; }',         
       '#message-drawer a.x:hover { color:#666; text-decoration:none; }',
       /* add to filter menu */
-      '.tweet-actions, .tf-actions { position:absolute; right:-5px; bottom:-5px; font-size:11px; }',
+      '.tweet-actions, .tf-actions { right:-5px; bottom:-5px; font-size:11px; }',
       '.pane-components .tweet-actions { right: -5px; }',
-      '.tf-actions { right: 64px; visibility:hidden; display:block; }',
-      '.stream-tweet:hover .tf-actions, .focused-stream-item .stream-tweet .tf-actions { visibility:visible; }',
+      '.tf-actions { visibility:hidden; display:block; }',
+      '.js-stream-tweet:hover .tf-actions, .focused-stream-item .js-stream-tweet .tf-actions { visibility:visible; }',
+      '.opened-tweet.js-stream-tweet:hover .tf-actions { display:none; }',
       '.tweet-actions a span b, .tf-actions a span b { display:none; }',
       '.tf-actions a { outline:0 !important; text-decoration:none !important; }',
       '.tf-actions a span b { font-weight:400; }',
@@ -4151,17 +4152,16 @@ var TweetfilterScript = function() {
       '.tf-last-read .tf-actions a.tf.mark span i { background-position:-29px -43px; }',
       '.tf-actions a.tf.quote span i { background-position:2px -15px; }',
       '.tf-actions a.tf.quote:hover span i { background-position:-13px -15px; }',
-      '.tf-actions a.tf.menu span i { background-position:-15px 1px; }',
-      '.tf-actions a.tf.menu:hover span i { background-position:-30px 1px; }',
+      '.tf-actions a.tf.menu span i { background:transparent; background-position:-15px 1px; }',
+      '.tf-actions a.tf.menu:hover span i { background:transparent; background-position:-30px 1px; }',
 
-      '.main-content ul.tf-menu { display:block; width:auto !important; position:absolute; top: 12px; right:0; left:auto; }',
-      '.main-content ul.tf-menu li { font-size:11px; padding:3px 8px; white-space:nowrap; overflow:hidden; }',
-      '.main-content ul.tf-menu li.tf-user a { font-weight:bold; }',
-      '.main-content ul.tf-menu li.tf-source a { font-style:italic; }',
+      'ul.tf-menu { display:block; width:auto !important; position:absolute; background:#fff; z-index:1; top:28px; left:220px; border: 1px solid #bbb; padding: 6px; }',
+      'ul.tf-menu li { font-size:11px; white-space:nowrap; overflow:hidden; }',
+      'ul.tf-menu li.tf-user a { font-weight:bold; }',
+      'ul.tf-menu li.tf-source a { font-style:italic; }',
 
-      '.main-content ul.tf-menu.drop-down { max-width:200px !important; }',
-      '.main-content ul.tf-menu.drop-down li a { max-width:180px; overflow:hidden; color:@link; }',
-      '.main-content ul.tf-menu.drop-down li:hover a { color:#fff; }',
+      'ul.tf-menu.drop-down { max-width:200px !important; }',
+      'ul.tf-menu.drop-down li a { max-width:180px; overflow:hidden; color:@link; }',
       '.tf-retweeters { margin:0; padding:0 !important; }',
       '.tf-retweeters > ul { margin:0; padding:3px 0 0 0; }',
       '.tf-retweeters > ul > li { margin:0 2px 2px 0 !important; padding:0; }',
