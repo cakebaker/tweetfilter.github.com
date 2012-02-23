@@ -3406,9 +3406,13 @@ var TweetfilterScript = function() {
         displayurl: link.html().replace(/<\S[^><]*>/g, ''), //currently visible url shown in tweet, clean html from searches
         longurl: ''
       }; //create own namespace
-      var expanded = [link.attr('title') || '',link.attr('data-expanded-url') || ''];
-      if (expanded[0] || expanded[1]) {
-        this.addresolvedurl(linkdata.shorturl, expanded[1].length > expanded[0].length ? expanded[1] : expanded[0]);
+      var expanded = [link.attr('title') || '', link.attr('data-expanded-url') || '', link.attr('data-ultimate-url') || ''];
+      if (expanded[0] || expanded[1] || expanded[2]) {
+        if (expanded[2] != '') {
+          this.addresolvedurl(linkdata.shorturl, expanded[2]);
+        } else {
+          this.addresolvedurl(linkdata.shorturl, expanded[1].length > expanded[0].length ? expanded[1] : expanded[0]);
+        }
       }
       linkdata.resolvedurl = this.resolveurl(linkdata.shorturl);
       if (showexpanded && linkdata.resolvedurl && linkdata.resolvedurl != linkdata.shorturl && linkdata.displayurl !== linkdata.resolvedurl) {
